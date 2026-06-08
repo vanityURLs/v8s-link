@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "i18n": {
+    "default_language": "en",
+    "supported_languages": ["en", "de", "es", "fr", "it"]
+  },
+  "links": {
+    "random_slug_length": 3,
+    "random_slug_alphabet": "34789abcdefghjkmnpqrstvwxy",
+    "tag_random_slug_lengths": {
+      "training": 4,
+      "debug": 2
+    }
+  },
+  "targets": {
+    "normalizers": {
+      "amazon": {
+        "preserve_affiliate_tag": false,
+        "allowed_tags": []
+      }
+    }
+  },
+  "operator": {
+    "legal_name": "Benoît H. Dicaire",
+    "short_domain": "v8s.link",
+    "operator_domain": "",
+    "jurisdiction": "",
+    "governing_law": "",
+    "contact_email": "hello@v8s.link",
+    "privacy_contact": "privacy@v8s.link",
+    "abuse_contact": "abuse@v8s.link",
+    "security_contact": "security@v8s.link",
+    "timezone": "America/Toronto",
+    "last_updated": "2026-06-08",
+    "umami_geo_ip_mode": "",
+    "analytics_disclosure": "No analytics enabled.",
+    "analytics_retention": "",
+    "abuse_response_window": "5 business days",
+    "legal_pages_enabled": false
+  },
+  "branding": {
+    "domain": "v8s.link",
+    "slogan": {
+      "en": "The official demo to help you as you build and debug your own instance",
+      "de": "Die offizielle Demo, die Ihnen beim Erstellen und Debuggen Ihrer eigenen Instanz hilft",
+      "es": "La demostración oficial para ayudarte a crear y depurar tu propia instancia",
+      "fr": "La démo officielle pour vous aider à créer et à déboguer votre propre instanc",
+      "it": "La demo ufficiale per aiutarti a creare e mettere a punto la tua istanza"
+    },
+    "slogan_link_text": {},
+    "custom_mode": "partial",
+    "wordmark": {
+      "black": "v8s.",
+      "green": "link"
+    }
+  }
+}

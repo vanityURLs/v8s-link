@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "shell_helper": {
+    "enabled": false,
+    "install_path": "$XDG_CONFIG_HOME/zsh/v8s.sh",
+    "rc_file": "$XDG_CONFIG_HOME/zsh/.zshrc"
+  },
+  "lnk_cli": {
+    "install_path": "$XDG_CONFIG_HOME/bin/v8s-lnk",
+    "legacy_install_path": "$XDG_CONFIG_HOME/bin/lnk"
+  },
+  "v8s_fix_cli": {
+    "install_path": "$XDG_CONFIG_HOME/bin/v8s-fix"
+  },
+  "local_publish": {
+    "commit_message": "chore: update local vanityURLs configuration",
+    "commit_messages": {
+      "links": "chore(links): update short links",
+      "policies": "chore(policies): update local policies",
+      "site_config": "chore(site): update instance configuration",
+      "mixed": "chore: update local vanityURLs configuration"
+    },
+    "paths": ["custom"]
+  },
+  "registry": {
+    "local_path": "~/.v8s.json"
+  },
+  "repository": {
+    "path": ""
+  }
+}

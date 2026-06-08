@@ -1,0 +1,94 @@
+{
+  "en": {
+    "name": "English",
+    "pagesTitle": "Pages",
+    "statusTitle": "Status Pages",
+    "lookupSlug": "lookup",
+    "links": {
+      "index": "Index",
+      "lookup": "Lookup",
+      "stats": "Stats",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "abuse": "Trust & Safety",
+      "security": "Security",
+      "notFound": "404",
+      "expired": "Expired",
+      "disabled": "Disabled",
+      "maintenance": "Maintenance"
+    }
+  },
+  "fr": {
+    "name": "Français",
+    "pagesTitle": "Pages",
+    "statusTitle": "Pages d'état",
+    "lookupSlug": "consultation",
+    "links": {
+      "index": "Accueil",
+      "lookup": "Consultation",
+      "stats": "Stats",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "abuse": "Confiance et sécurité",
+      "security": "Sécurité",
+      "notFound": "404",
+      "expired": "Expiré",
+      "disabled": "Désactivé",
+      "maintenance": "Maintenance"
+    }
+  },
+  "es": {
+    "name": "Español",
+    "pagesTitle": "Páginas",
+    "statusTitle": "Páginas de estado",
+    "lookupSlug": "consulta",
+    "links": {
+      "index": "Inicio",
+      "lookup": "Consulta",
+      "stats": "Stats",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "abuse": "Confianza y seguridad",
+      "notFound": "404",
+      "expired": "Caducado",
+      "disabled": "Desactivado",
+      "maintenance": "Mantenimiento"
+    }
+  },
+  "it": {
+    "name": "Italiano",
+    "pagesTitle": "Pagine",
+    "statusTitle": "Pagine di stato",
+    "lookupSlug": "consulta",
+    "links": {
+      "index": "Home",
+      "lookup": "Consulta",
+      "stats": "Stats",
+      "privacy": "Privacy",
+      "terms": "Condizioni",
+      "abuse": "Fiducia e sicurezza",
+      "notFound": "404",
+      "expired": "Scaduto",
+      "disabled": "Disattivato",
+      "maintenance": "Manutenzione"
+    }
+  },
+  "de": {
+    "name": "Deutsch",
+    "pagesTitle": "Seiten",
+    "statusTitle": "Statusseiten",
+    "lookupSlug": "abfrage",
+    "links": {
+      "index": "Start",
+      "lookup": "Abfrage",
+      "stats": "Stats",
+      "privacy": "Datenschutz",
+      "terms": "Bedingungen",
+      "abuse": "Vertrauen und Sicherheit",
+      "notFound": "404",
+      "expired": "Abgelaufen",
+      "disabled": "Deaktiviert",
+      "maintenance": "Wartung"
+    }
+  }
+}

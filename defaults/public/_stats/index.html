@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/stats.css?v=20260601" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1 data-i18n="title">Dashboard</h1>
+          <div class="header-meta" id="generated"></div>
+        </div>
+        <a class="brand-mark" href="https://vanityURLs.link" target="_blank" rel="noreferrer" aria-label="VanityURLs">
+          <img src="/logo.svg" alt="VanityURLs" />
+        </a>
+      </header>
+
+      <section class="grid" id="metrics"></section>
+
+      <input id="search" type="search" placeholder="Search path, target, title, description, owner, tags…" />
+      <div class="filter-summary" id="filter-summary" aria-live="polite"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th class="slug-cell" data-i18n="columns.slug">Slug</th>
+            <th class="state-cell" data-i18n="columns.state">State</th>
+            <th class="title-cell" data-i18n="columns.title">Title</th>
+            <th class="target-cell" data-i18n="columns.target">Target</th>
+            <th class="owner-cell" data-i18n="columns.owner">Owner</th>
+            <th class="tags-cell" data-i18n="columns.tags">Tags</th>
+            <th class="expires-cell" data-i18n="columns.expires">Expires</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+
+      <footer>
+        <span class="release-status" id="release-status"></span>
+        <a class="download-link" href="api/v8s.json" download="v8s.json" data-i18n="download">Download v8s.json</a>
+      </footer>
+    </main>
+    <script src="/stats.js?v=20260601" defer></script>
+  </body>
+</html>

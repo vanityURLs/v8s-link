@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "i18n": {
+    "default_language": "en",
+    "supported_languages": ["de", "en", "es", "fr", "it"]
+  },
+  "links": {
+    "random_slug_length": 3,
+    "random_slug_alphabet": "34789abcdefghjkmnpqrstvwxy",
+    "tag_random_slug_lengths": {
+      "training": 4,
+      "debug": 2
+    }
+  },
+  "targets": {
+    "normalizers": {
+      "amazon": {
+        "preserve_affiliate_tag": false,
+        "allowed_tags": []
+      }
+    }
+  },
+  "operator": {
+    "legal_name": "",
+    "short_domain": "",
+    "operator_domain": "",
+    "jurisdiction": "",
+    "governing_law": "",
+    "contact_email": "",
+    "privacy_contact": "",
+    "abuse_contact": "",
+    "security_contact": "",
+    "timezone": "UTC",
+    "last_updated": "",
+    "umami_geo_ip_mode": "",
+    "analytics_disclosure": "",
+    "analytics_retention": "",
+    "abuse_response_window": ""
+  },
+  "branding": {
+    "domain": "",
+    "slogan": {},
+    "slogan_link_text": {},
+    "custom_mode": "default",
+    "wordmark": {
+      "black": "",
+      "green": ""
+    }
+  }
+}

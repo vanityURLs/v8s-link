@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VanityURLs short links</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/v8s-style.css?v=20260601" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="search-home" aria-labelledby="brand-title">
+        <a class="wordmark" href="https://vanityurls.link/" target="_blank" rel="noreferrer" aria-label="VanityURLs">
+          <h1 id="brand-title"><span>Vanity</span><span>URLs</span></h1>
+        </a>
+
+        <form class="redirect-form">
+          <label class="sr-only" for="redirectKey">Short link</label>
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="m21 21-4.35-4.35m1.1-5.15a6.25 6.25 0 1 1-12.5 0 6.25 6.25 0 0 1 12.5 0Z" />
+            </svg>
+            <input
+              id="redirectKey"
+              type="text"
+              maxlength="99"
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+              inputmode="url"
+              placeholder="Type a short link redirected by vanityURLs.link engine"
+              required
+            />
+            <button type="submit" aria-label="Open short link">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5 12h12M13 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </form>
+
+        <a
+          class="redirected-badge"
+          href="https://vanityURLs.link"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="VanityURLs"
+        >
+          <picture>
+            <source srcset="/v8s-redirected-dark.svg" media="(prefers-color-scheme: dark)" />
+            <img src="/v8s-redirected.svg" alt="V8S redirected by VanityURLs" />
+          </picture>
+        </a>
+
+        <nav class="page-links" aria-label="Instance pages">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/trust-safety">Trust &amp; Safety</a>
+          <a href="/security">Security</a>
+        </nav>
+      </section>
+    </main>
+
+    <noscript>
+      <p>JavaScript is disabled</p>
+      <p><span>Open short links directly in the address bar, for example:</span> <a href="/test">/test</a></p>
+    </noscript>
+
+    <script src="/v8s-script.js" defer></script>
+  </body>
+</html>

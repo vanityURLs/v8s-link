@@ -1,0 +1,36 @@
+name = 'v8s-link'
+main = 'src/worker.mjs'
+compatibility_date = '2026-05-05'
+workers_dev = false
+preview_urls = false
+[build]
+command = 'npm run build'
+
+[assets]
+directory = './build'
+binding = 'ASSETS'
+not_found_handling = '404-page'
+run_worker_first = [
+  "/*",
+  "!/*.css",
+  "!/*.js",
+  "!/*.png",
+  "!/*.svg",
+  "!/*.ico",
+  "!/*.webmanifest",
+  "!/*.xml",
+  "!/fonts/*",
+]
+
+[[routes]]
+pattern = "v8s.link"
+custom_domain = true
+
+[observability]
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[vars]
+ANALYTICS_PROVIDER = 'disabled'
+CF_ACCESS_TEAM_DOMAIN = 'vanityurls.cloudflareaccess.com'

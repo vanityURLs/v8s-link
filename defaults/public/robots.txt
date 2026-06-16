@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /
+
+Allow: /robots.txt
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /en/_stats/
+Disallow: /*/_stats/
+Disallow: /_tests/
+Disallow: /lookup/
+
+# VanityURLs instances are redirect engines, not public content sites

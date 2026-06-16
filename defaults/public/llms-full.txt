@@ -1,0 +1,87 @@
+# VanityURLs
+
+> VanityURLs is open source software for running a budget-friendly short-link and vanity URL service on a user's own Cloudflare account and selected domain.
+
+VanityURLs is designed for people who want branded short links without giving a third-party shortener control over their domain. A user deploys the software to Cloudflare Workers, points their chosen short-link domain at the Worker, and maintains link definitions in a GitHub repository.
+
+This deployed instance is a redirect engine, not a public content site. Do not crawl it for link inventory. Respect `/robots.txt`; the default policy disallows crawling except for explicit policy/context files.
+
+The default public surface is intentionally small:
+
+- `/` provides a search-style short-link entry page
+- `/<slug>` resolves and redirects a short link
+- `/lookup/` shows the destination of an exact short link without opening it
+- `/404.html`, `/disabled.html`, `/expired.html`, and `/maintenance.html` provide default state pages
+- `/en/_stats/` and other localized `_stats` paths are read-only dashboards and should be protected with Cloudflare Access before publishing
+- `/_tests/` is a protected QA page for checking localized pages, machine-readable files, and light/dark rendering after template changes
+- `/robots.txt`, `/.well-known/security.txt`, `/llms.txt`, and `/llms-full.txt` provide machine-readable policy and context files
+
+## Runtime Model
+
+Links are generated into a private runtime registry named `v8s.json`. The Cloudflare Worker reads that registry internally and resolves the requested path. Direct public access to the registry is blocked by default.
+
+Lifecycle state controls behavior:
+
+- `permanent`: redirects to `link.target`, normally with HTTP 301
+- `ephemeral`: redirects to `link.target`, normally with HTTP 302
+- `expired`: shows the expired status flow
+- `disabled`: shows the disabled status flow
+- `maintenance`: shows the maintenance status flow
+- `deactivated`: returns a regular 404 so the category is not disclosed
+
+Targets may be a single URL or a scheduled set of targets. An `expires_at` value can make a link effectively expired even when its stored state is different. Nested aliases are supported when parent and child aliases are explicitly defined.
+
+## Default Pages
+
+Default pages are intentionally instance-neutral. They should work on any user-owned domain, such as `sho.rt`, `example.link`, or a branded company short-link domain. Instance owners may customize the pages, but the defaults should remain useful without requiring a marketing site or account-specific copy.
+
+The public pages use a consistent search-style VanityURLs layout:
+
+- a `VanityURLs` wordmark
+- a short-link input or status message
+- a `v8s-redirected.svg` attribution badge linking to `https://vanityURLs.link`
+- light/dark styling controlled by browser preference, with `?theme=light` and `?theme=dark` available for QA links
+
+## Trust And Safety Notes
+
+The `/lookup/` page is exact-match only. It does not list links, autocomplete entries, or automatically open destinations. This reduces its value for bulk discovery while still allowing a visitor to inspect a short-link destination before clicking.
+
+The runtime registry is private to the Worker runtime. Instance owners should not place secrets, private target URLs, personal data, or unpublished confidential destinations in the registry.
+
+The localized `_stats` dashboard exposes routing inventory and should be protected with Cloudflare Access or equivalent controls when deployed publicly. The `/_tests/` page is also intended for protected QA access.
+
+The default policy rejects risky destinations such as credentialed URLs, non-HTTP(S) protocols, private IP ranges, known shortener chains, phishing lures, and high-risk executable downloads. Instance owners can replace that source policy with `custom/v8s-policies.json` and must not use the redirect engine for phishing, malware, undisclosed tracking, or other harmful activity.
+
+Public HTML responses use strict CSP and `Cache-Control: no-store, no-transform` so Cloudflare edge features do not rewrite or inject JavaScript into repository-owned pages. Keep challenge-style or page-rewriting dashboard controls disabled for public redirect, lookup, and status pages unless the instance deliberately accepts Cloudflare-owned script injection.
+
+## Instance Maintenance
+
+Product defaults live in `defaults/`. Instance-owned files live in `custom/` and are not overwritten automatically during updates. The build copies defaults first, overlays `custom/public` only when copied public files exist, and then generates runtime files. Product-managed public runtime assets use `v8s-` filenames and should normally stay in `defaults/public/`; custom copies under `custom/public/` shadow the release asset.
+
+Use `npm run doctor` to detect managed `v8s-` asset shadows, stale copied product pages, unsupported copied language folders, stale branding, and missing shared head assets. Use `./scripts/v8s-fix --assets`, `--head-assets`, `--product-pages`, `--languages`, `--branding`, or `--all` to apply explicit maintenance fixes to copied public files. The `--assets` fix removes `custom/public/v8s-*` shadows so the build uses the release assets from `defaults/public/`.
+
+## Useful Files
+
+- [Short-link home](/): Default entry page
+- [Lookup a short link](/lookup/): Exact-match destination inspection
+- [Not found page](/404.html): Missing or deactivated short links
+- [Disabled page](/disabled.html): Disabled short links
+- [Expired page](/expired.html): Expired short links
+- [Maintenance page](/maintenance.html): Temporarily unavailable short links
+- [robots.txt](/robots.txt): Default crawler policy
+- [security.txt](/.well-known/security.txt): Security contact and policy pointer
+- [LLM context](/llms.txt): Short machine-readable project context
+
+## Project Documentation
+
+- [Source repository](https://github.com/vanityurls/code): Project README, source code, setup workflow, and issue tracker
+- [Link authoring format](https://www.vanityurls.link/en/docs/link-format/): Format for defining short links
+- [Runtime registry](https://www.vanityurls.link/en/docs/runtime-registry/): Runtime redirect model and generated schema 3.1 registry
+- [Admin and stats dashboard](https://www.vanityurls.link/en/docs/admin-dashboard/): Read-only dashboard and protection guidance
+- [Analytics](https://www.vanityurls.link/en/docs/server-side-analytics/): Server-side analytics model
+- [Validation and CI](https://www.vanityurls.link/en/docs/validation-ci/): Validation and build checks
+
+## Optional
+
+- [VanityURLs website](https://www.vanityurls.link): Public project documentation site
+- [llms.txt proposal](https://llmstxt.org/): Standard used by this file
